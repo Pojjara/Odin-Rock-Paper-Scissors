@@ -1,6 +1,6 @@
-let computersScore = 0
-let playersScore = 0
-playersScore++
+let computersScore = 0;
+let playersScore = 0;
+
 
 function computerPlay() {
     let number = Math.floor(Math.random() * 3);
@@ -27,24 +27,25 @@ function playRound(playerSelection, computerSelection) {
     }
     else if (playerSelection == 'Rock') {
         if (computerSelection == 'Paper') {
-            computersScore++;
+            ++computersScore
+            console.log('Gets here')
             return 'Computer wins !'
             
         }
         else if (computerSelection == 'Scissors') {
-            playersScore++;
+            ++playersScore
             return 'Player Wins !'
             
         }
     }
     else if (playerSelection == 'Paper') {
         if (computerSelection == 'Rock') {
-            playersScore++;
+            ++playersScore
             return 'Player Wins !'
             
         }
         else if (computerSelection == 'Scissors') {
-            computersScore++;
+            ++computersScore
             return 'Computer wins !'
             
         }
