@@ -1,5 +1,4 @@
-let computersScore = 0;
-let playersScore = 0;
+
 
 
 function computerPlay() {
@@ -23,56 +22,69 @@ function playRound(playerSelection, computerSelection) {
 
 
     if (playerSelection == computerSelection) {
-        return 'Tie!'
+        return 0
     }
     else if (playerSelection == 'Rock') {
         if (computerSelection == 'Paper') {
-            ++computersScore
-            console.log('Gets here')
-            return 'Computer wins !'
+            
+            return 2
             
         }
         else if (computerSelection == 'Scissors') {
-            ++playersScore
-            return 'Player Wins !'
+            
+            return 1
             
         }
     }
     else if (playerSelection == 'Paper') {
         if (computerSelection == 'Rock') {
-            ++playersScore
-            return 'Player Wins !'
+            
+            return 1
             
         }
         else if (computerSelection == 'Scissors') {
-            ++computersScore
-            return 'Computer wins !'
+            
+            return 2
             
         }
     }
     else if (playerSelection == 'Scissors') {
         if (computerSelection == 'Paper') {
-            playersScore++;
-            return 'Player Wins !'
+            
+            return 1
             
         }
         else if (computerSelection == 'Rock') {
-            computersScore++;
-            return 'Computer wins !'
+            
+            return 2
             
         }
     }
   }
-  
+
   
   
 function game(lenght) {
+    let computersScore = 0;
+    let playersScore = 0;
     for (let i = 0; i < lenght; i++) {
         let playerSelection = prompt("Rock, Paper or Scissors?")
         let computerSelection = computerPlay();
         console.log('Computers Selection is : ', computerSelection)
-        console.log(playRound(playerSelection, computerSelection));
+        let winner = playRound(playerSelection, computerSelection)
+        if (winner == 1) {
+            playersScore++
+            console.log('Player wins !');
+        }
+        else if (winner == 2) {
+            computersScore++
+            console.log('Computer wins !')
+        }
+        else {
+            console.log('Tie !')
+        }
+        
         console.log('Players Score : ', playersScore)
-        console.log('Computers Score : ', playersScore)
+        console.log('Computers Score : ', computersScore)
      }
 }
